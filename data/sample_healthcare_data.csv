@@ -1,0 +1,31 @@
+Patient ID,Disease,Treatment Cost,Hospital Stay Days,Age
+P001,Diabetes,12500,5,45
+P002,Hypertension,8900,3,62
+P003,Heart Disease,45000,12,58
+P004,Diabetes,11200,4,52
+P005,Cancer,125000,25,55
+P006,Pneumonia,18500,8,68
+P007,Hypertension,7800,2,55
+P008,Asthma,4500,1,35
+P009,Heart Disease,52000,14,70
+P010,Diabetes,13100,5,48
+P011,Cancer,135000,28,62
+P012,Arthritis,6200,2,75
+P013,Stroke,89000,20,71
+P014,Pneumonia,16200,6,72
+P015,Heart Disease,48000,11,65
+P016,Diabetes,12800,5,50
+P017,Hypertension,8500,3,58
+P018,Cancer,128000,26,60
+P019,Asthma,5100,2,42
+P020,Diabetes,11900,4,46
+P021,Stroke,92000,22,68
+P022,Heart Disease,51000,13,67
+P023,Pneumonia,17800,7,70
+P024,Hypertension,9200,3,60
+P025,Cancer,131000,27,58
+P026,Arthritis,5800,2,72
+P027,Asthma,4800,1,38
+P028,Diabetes,13500,6,54
+P029,Heart Disease,46000,10,63
+P030,Pneumonia,19100,9,75
