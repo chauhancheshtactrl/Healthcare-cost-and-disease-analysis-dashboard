@@ -1,0 +1,43 @@
+# Healthcare Cost and Disease Analysis Configuration
+
+# Data Configuration
+data:
+  raw_path: 'data/raw/'
+  processed_path: 'data/processed/'
+  filename: 'healthcare_data.csv'  # Update with your actual filename
+
+# Column Names
+columns:
+  patient_id: 'Patient ID'
+  disease: 'Disease'
+  treatment_cost: 'Treatment Cost'
+  hospital_days: 'Hospital Stay Days'
+  age: 'Age'
+
+# Analysis Parameters
+analysis:
+  missing_threshold: 0.1  # Drop columns with >10% missing values
+  outlier_method: 'iqr'   # 'iqr' or 'zscore'
+  outlier_threshold: 1.5  # IQR multiplier for outlier detection
+
+# Visualization Settings
+visualization:
+  style: 'seaborn'
+  color_palette: 'husl'
+  figure_dpi: 100
+  figure_size:
+    width: 12
+    height: 8
+
+# Report Settings
+report:
+  output_format: 'html'  # 'html' or 'pdf'
+  include_executive_summary: true
+  include_statistical_analysis: true
+  include_visualizations: true
+
+# Output Paths
+output:
+  reports_path: 'reports/'
+  charts_path: 'reports/charts/'
+  dashboard_path: 'reports/dashboard.html'

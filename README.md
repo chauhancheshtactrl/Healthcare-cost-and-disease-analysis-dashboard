@@ -1,122 +1,193 @@
 # Healthcare Cost and Disease Analysis Dashboard
 
-A comprehensive data analysis project designed to examine healthcare expenditure patterns and disease burdens using patient-level hospital data. This project analyzes treatment costs, hospital stay duration, patient demographics, and disease prevalence to provide actionable insights for healthcare administrators and policymakers.
+## Project Overview
 
-## 📊 Project Overview
+This data analysis project examines healthcare expenditure patterns and disease burdens using patient-level hospital data. It provides actionable insights for healthcare administrators and decision-makers through comprehensive cost analysis, statistical insights, and interactive visualizations.
 
-This dashboard provides an in-depth analysis of:
-- **Healthcare Expenditure Patterns**: Track and analyze spending trends across different departments and patient demographics
-- **Disease Burden Analysis**: Understand the prevalence and distribution of various diseases in the patient population
-- **Hospital Stay Duration**: Examine factors influencing length of stay and patient outcomes
-- **Cost Drivers**: Identify key factors contributing to healthcare costs
-- **Patient Demographics**: Analyze healthcare needs across different age groups, genders, and socioeconomic backgrounds
+## Objectives
 
-## 🎯 Objectives
+- **Cost Analysis**: Analyze treatment costs by disease and identify cost drivers
+- **Healthcare Economics**: Understand cost-disease relationships and resource allocation
+- **Patient Demographics**: Examine disease prevalence and hospital stay patterns
+- **Business Intelligence**: Generate executive summaries for healthcare decision-makers
 
-- Identify cost optimization opportunities in healthcare delivery
-- Understand disease patterns and their correlation with healthcare spending
-- Support data-driven decision-making for hospital management
-- Enable predictive analysis for resource allocation
-- Visualize complex healthcare data in an accessible format
+## Dataset
 
-## 📁 Project Structure
+The analysis uses patient-level hospital data with the following columns:
+
+| Column | Description | Data Type |
+|--------|-------------|----------|
+| Patient ID | Unique patient identifier | Integer |
+| Disease | Medical condition/diagnosis | String |
+| Treatment Cost | Cost of treatment in USD | Float |
+| Hospital Stay Days | Duration of hospitalization | Integer |
+| Age | Patient age in years | Integer |
+
+## Project Structure
 
 ```
-Healthcare-cost-and-disease-analysis-dashboard/
-├── README.md                 # Project documentation
-├── data/                     # Raw and processed data files
-├── notebooks/               # Jupyter notebooks for analysis
-├── scripts/                 # Python scripts for data processing
-├── visualizations/          # Generated charts and dashboards
-├── reports/                 # Analysis reports and findings
-└── requirements.txt         # Project dependencies
+├── data/
+│   ├── raw/                          # Raw input data
+│   └── processed/                    # Cleaned and processed data
+├── notebooks/
+│   ├── 01_data_exploration.ipynb     # EDA and data quality checks
+│   ├── 02_cost_analysis.ipynb        # Detailed cost analysis
+│   └── 03_executive_summary.ipynb    # Executive summary generation
+├── src/
+│   ├── __init__.py
+│   ├── data_loader.py                # Data loading utilities
+│   ├── analysis.py                   # Analysis functions
+│   └── visualization.py              # Visualization functions
+├── reports/
+│   ├── executive_summary.html        # Executive summary report
+│   ├── cost_analysis_report.html     # Detailed cost analysis
+│   └── charts/                       # Generated visualizations
+├── requirements.txt                   # Python dependencies
+├── config.yaml                        # Configuration settings
+└── README.md                          # This file
 ```
 
-## 🔧 Technology Stack
+## Key Analyses
 
-- **Python 3.x**: Data analysis and processing
-- **Pandas**: Data manipulation and analysis
-- **NumPy**: Numerical computing
-- **Matplotlib & Seaborn**: Data visualization
-- **Jupyter Notebooks**: Interactive analysis
-- **Plotly**: Interactive dashboards (optional)
+### 1. Cost Analysis by Disease
+- Total treatment costs per disease
+- Average treatment cost by disease
+- Cost distribution statistics
+- Cost per hospital stay day
 
-## 📦 Installation
+### 2. Most Expensive Diseases
+- Ranking diseases by total and average treatment costs
+- Identification of high-cost diseases
+- Cost drivers and contributing factors
 
-1. Clone the repository:
-```bash
-git clone https://github.com/chauhancheshtactrl/Healthcare-cost-and-disease-analysis-dashboard.git
-cd Healthcare-cost-and-disease-analysis-dashboard
-```
+### 3. Healthcare Utilization
+- Average hospital stay duration by disease
+- Patient age distribution by disease
+- Hospital stay cost efficiency analysis
 
-2. Install dependencies:
+### 4. Executive Insights
+- Key performance indicators (KPIs)
+- Cost trends and patterns
+- Resource allocation recommendations
+- Healthcare expenditure summary
+
+## Visualizations
+
+The project includes interactive charts and dashboards:
+
+- **Bar Charts**: Average treatment cost by disease
+- **Pie Charts**: Cost distribution across diseases
+- **Box Plots**: Treatment cost distributions
+- **Scatter Plots**: Relationship between hospital days and treatment cost
+- **Heatmaps**: Cross-disease analysis matrices
+- **Dashboard**: Interactive executive summary dashboard
+
+## Requirements
+
+- Python 3.8+
+- pandas
+- numpy
+- matplotlib
+- seaborn
+- plotly
+- scipy
+
+Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Launch Jupyter Notebook:
-```bash
-jupyter notebook
+## Quick Start
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/chauhancheshtactrl/Healthcare-cost-and-disease-analysis-dashboard.git
+   cd Healthcare-cost-and-disease-analysis-dashboard
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Place your data**
+   - Add your CSV file to `data/raw/`
+   - Update `config.yaml` with the correct filename
+
+4. **Run analysis**
+   ```bash
+   jupyter notebook notebooks/01_data_exploration.ipynb
+   ```
+
+5. **Generate reports**
+   ```bash
+   python -m src.generate_reports
+   ```
+
+## Usage Examples
+
+### Basic Data Loading
+```python
+from src.data_loader import load_healthcare_data
+
+df = load_healthcare_data('data/raw/healthcare_data.csv')
+print(df.head())
+print(df.describe())
 ```
 
-## 📊 Data Analysis Areas
-
 ### Cost Analysis
-- Total healthcare expenditure by department
-- Average cost per patient by disease type
-- Cost trends over time periods
-- Outlier identification and cost drivers
+```python
+from src.analysis import calculate_cost_statistics
 
-### Disease Analysis
-- Most prevalent diseases in the dataset
-- Disease-specific healthcare costs
-- Comorbidity patterns
-- Disease distribution by patient demographics
+cost_by_disease = calculate_cost_statistics(df)
+print(cost_by_disease)
+```
 
-### Patient Demographics
-- Age distribution and healthcare costs
-- Gender-based healthcare spending patterns
-- Length of stay correlations
-- Readmission rates and patterns
+### Generate Visualizations
+```python
+from src.visualization import create_dashboard
 
-### Operational Metrics
-- Average hospital stay duration
-- Department utilization rates
-- Patient outcomes by treatment type
-- Resource allocation efficiency
+figs = create_dashboard(df)
+# Save and display visualizations
+```
 
-## 📈 Key Findings
+## Key Insights Generated
 
-*Analysis results and key insights will be documented here*
+The analysis provides:
 
-## 🔍 How to Use
+1. **Cost Rankings**: Which diseases are most expensive?
+2. **Efficiency Metrics**: Cost per hospital day for each disease
+3. **Demographic Insights**: Age patterns and disease prevalence
+4. **Resource Utilization**: Average hospital stays and treatment patterns
+5. **Recommendations**: Evidence-based insights for healthcare planning
 
-1. **Data Preparation**: Run data processing scripts in the `scripts/` directory
-2. **Exploratory Analysis**: Open notebooks in the `notebooks/` directory
-3. **Visualizations**: Review generated charts in the `visualizations/` folder
-4. **Reports**: Check the `reports/` directory for comprehensive findings
+## Target Audience
 
-## 📝 Methodology
+- Healthcare Business Analysts
+- Health Economics Professionals
+- Hospital Administrators
+- Healthcare Policy Makers
+- Data Analysis Professionals in Healthcare
 
-The analysis follows these steps:
-- Data cleaning and validation
-- Exploratory Data Analysis (EDA)
-- Statistical analysis and hypothesis testing
-- Data visualization and dashboard creation
-- Insight generation and recommendations
+## Reports Generated
 
-## 🤝 Contributing
+1. **Executive Summary Report**: High-level insights for decision-makers
+2. **Cost Analysis Report**: Detailed cost breakdowns and trends
+3. **Statistical Analysis**: Descriptive statistics and distributions
+4. **Interactive Dashboard**: Visual exploration of healthcare data
 
-Contributions are welcome! Please feel free to submit issues or pull requests to improve the project.
+## Future Enhancements
 
-## 📄 License
+- Predictive modeling for cost forecasting
+- Seasonal trend analysis
+- Interactive web-based dashboard with Dash/Streamlit
+- Machine learning for disease cost prediction
+- Time-series analysis for longitudinal studies
 
-This project is open source and available under the MIT License.
+## Author
 
-## ✉️ Contact
+Created for healthcare data analysis and business intelligence applications.
 
-For questions or suggestions, please reach out to the project maintainer.
+## License
 
----
-
-**Last Updated**: June 2026
+MIT License - See LICENSE file for details
